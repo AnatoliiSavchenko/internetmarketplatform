@@ -1,0 +1,20 @@
+	upload file :Gemashield-World-OS-Core/
+│
+├── 📁 assets/                 # (Public folder for CDN usage)
+│   ├── 📁 video/              # Transformation videos, "clean breath" visuals
+│   ├── 📁 audio/              # Background music for the websites
+│   └── 📁 images/             # Tech Uni N diagrams, logos
+│
+├── 📁 frontend/               # (Private folder)
+│   ├── 📄 gemashield.html     # Main detection window (Germany)
+│   ├── 📄 gernovamarket.html  # Financial terminal (Germany)
+│   └── 📄 trs-shield.html     # Academy & Aerospace (Ireland)
+│
+├── 📁 backend/                # (Private folder)
+│   ├── 📄 sef_detection.py    # File deletion logic (GDPR compliance)
+│   └── 📄 token_formulas.py   # GNC and SA token formulas
+│
+└── 📁 discord-agents/         # (Private folder)
+    ├── 📄 master_bot.py       # Your personal controller
+    └── 📄 academy_agent.py    # Upgraded educational generator
+video content (1000000832.mp4)
