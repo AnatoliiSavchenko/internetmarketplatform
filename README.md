@@ -1,8 +1,28 @@
 internetmarketplatform-Savchenko Anatolii
 </head>
+Gemashield-World-OS-Core/
+│
+├── 📁 assets/                 # (Public folder for CDN usage)
+│   ├── 📁 video/              # Transformation videos, "clean breath" visuals
+│   ├── 📁 audio/              # Background music for the websites
+│   └── 📁 images/             # Tech Uni N diagrams, logos
+│
+├── 📁 frontend/               # (Private folder)
+│   ├── 📄 gemashield.html     # Main detection window (Germany)
+│   ├── 📄 gernovamarket.html  # Financial terminal (Germany)
+│   └── 📄 trs-shield.html     # Academy & Aerospace (Ireland)
+│
+├── 📁 backend/                # (Private folder)
+│   ├── 📄 sef_detection.py    # File deletion logic (GDPR compliance)
+│   └── 📄 token_formulas.py   # GNC and SA token formulas
+│
+└── 📁 discord-agents/         # (Private folder)
+    ├── 📄 master_bot.py       # Your personal controller
+    └── 📄 academy_agent.py    # Upgraded educational generator
+
 <body>head>
 main():json.jn
-    print("Hello from GEMA5 -Hello from Anatolii Savchenko__ == "__main__":
+    print("Hello from GEMASHIELD Hello from Anatolii Savchenko__ == "__main__":
     main()
  LLM GEMA-google-gemini/gemini-cli}
 class GEMAGenerator(LLMInterface):
