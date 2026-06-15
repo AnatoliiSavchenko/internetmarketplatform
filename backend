@@ -1,3 +1,59 @@
+<# master_core_updated.py
+import os
+from flask import Flask, request, jsonify
+from web3 import Web3
+from concurrent.futures import ProcessPoolExecutor
+from dotenv import load_dotenv
+
+load_dotenv()
+app = Flask(__name__)
+
+w3 = Web3(Web3.HTTPProvider(os.getenv("POLYGON_RPC")))
+private_key = os.getenv("COINBASE_PRIVATE_KEY")
+if private_key:
+    account = w3.eth.account.from_key(private_key)
+
+PAYPAL = ["sawtexx@gmail.com", "internetmarketplatform@gmail.com"]
+WISE = "internetmarketplatform@gmail.com"
+GOFUNDME = "https://gofund.me/46dd2c919"
+
+# Створюємо пул процесів ОДИН РАЗ на рівні глобальної області видимості
+executor = ProcessPoolExecutor(max_workers=5)
+
+def process_core_task(core_id, data):
+    cores_map = {
+        1: "SA (Energy Optimization)",
+        2: "GK_PWR (Neural Compute)",
+        3: "GNC (B2B Logic)",
+        4: "TRS (Trust/ZKP Security)",
+        5: "BroKing (Governance/Yield)"
+    }
+    # Тут можна підключити твої формули GNC з попередніх файлів
+    return f"Core {core_id} processed {cores_map[core_id]} for request {data.get('id', 'N/A')}"
+
+@app.route('/api/v1/master_process', methods=['POST'])
+def master_process():
+    data = request.json or {}
+    
+    # Використовуємо існуючий пул процесів (безпечно для пам'яті)
+    futures = [executor.submit(process_core_task, i, data) for i in range(1, 6)]
+    results = [f.result() for f in futures]
+    
+    net_profit = data.get("amount", 0)
+    donation_amount = net_profit * 0.30
+    
+    return jsonify({
+        "status": "success",
+        "cores_report": results,
+        "financial_routing": {
+            "net_profit": net_profit,
+            "google_cloud_donation_30pc": donation_amount,
+            "gofundme_link": GOFUNDME
+        }
+    })
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8081)
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
