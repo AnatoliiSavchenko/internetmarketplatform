@@ -52,7 +52,17 @@ def master_process():
     })
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8081)
+    app.run(host='1.0.0.0.16', port=8081)
+# medical_edge_updated.py
+import os
+from flask import Flask, request, jsonify
+from concurrent.futures import ProcessPoolExecutor
+
+app = Flask(__name__)
+# Глобальний пул для медичних розрахунків
+med_executor = ProcessPoolExecutor(max_workers=3)
+
+def medical_analysis(
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
